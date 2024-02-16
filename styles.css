@@ -1,0 +1,1097 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+@font-face {
+    font-family: 'FontNameBold';
+    src: url("./fonts/bold.woff2");
+}
+
+@font-face {
+    font-family: 'FontNameMain';
+    src: url("./fonts/main.woff2");
+}
+@font-face {
+    font-family: 'FontNameStatic';
+    src: url("./fonts/static.woff2");
+}
+
+@font-face {
+    font-family: 'FontNameLight';
+    src: url("./fonts/light.woff2");
+}
+
+a{
+    text-decoration: none;
+    color: #003366;
+}
+ul{
+    list-style-type: none;
+}
+
+.wrapper{
+    width: 1280px;
+}
+.network-items{
+    display: flex;
+
+}
+.header-blue{
+    border-top: 5px solid #c20017;
+    display: flex;
+    height: 84px;
+    background-color: #003366;
+    width: 1454px;
+
+    padding-top: 15px;
+}
+.logo {
+    background-image: url('https://static.foxnews.com/static/orion/styles/img/fox-news/s/logos/fox-news-logo.svg');
+    background-repeat: no-repeat;
+    width: 48px;
+    height: 48px;
+    background-size: cover;
+    margin-left: 62px;
+    margin-right: 62px;
+
+    border: 2px solid white;
+}
+
+.main-ul{
+    font-family: FontNameBold, sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    display: flex;
+    justify-content: space-between;
+    color: white;
+}
+
+
+.inner{
+    width: 535px;
+    margin-left: -25px;
+    height: 50px;
+    padding-top: 15px;
+}
+.meta{
+    margin-left: 360px;
+    margin-top: 12px;
+    display: flex;
+
+}
+.meta-btn{
+    background-color: #c20017;
+    color: white;
+    border: none;
+    height: 30px;
+    width: 75px;
+    border-radius: 2px;
+    margin-left: 12px;
+    font-weight: bold;
+}
+.search-toggle{
+    margin-top: 10px;
+}
+
+.page{
+    margin-left: 62px;
+    margin-right: 62px;
+    text-align: center;
+}
+.page-header{
+    font-family: FontNameBold, sans-serif;
+    font-size: 48px;
+    line-height: 58px;
+    margin-bottom: 8px;
+    margin-top: 10px;
+}
+
+.page-span{
+    font-family: FontNameBold, sans-serif;
+    display: inline-block;
+    text-transform: uppercase;
+    background-color: #c20017;
+    color: white;
+    border-radius: 2px;
+    font-size: 14px;
+    padding: 3px;
+    margin-top: 25px;
+}
+
+.page-header2{
+    text-transform: lowercase;
+    font-weight: 300;
+    font-family: FontNameStatic, sans-serif;
+    font-size: 24px;
+    line-height: 28px;
+}
+
+.page-author-span{
+    font-weight: 900;
+    font-family: FontNameBold, sans-serif;
+    margin-right: 10px;
+}
+
+
+.page-author{
+    text-align: center;
+    margin-top: 10px;
+}
+
+.article{
+    text-align: center;
+    margin-top: 25px;
+    font-family: FontNameStatic,sans-serif;
+    font-size: 14px;
+
+    padding-bottom: 20px;
+    margin-left: 80px;
+
+}
+
+.update-article-data {
+    border-left: 1px solid grey;
+    padding-left: 15px;
+    margin-left: 15px;
+}
+.facebook{
+display: block;
+width: 40px;
+    height: 40px;
+    background-color: #003366;
+    background-image: url("./img/facebook.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-indent: -99999px;
+    border-radius: 50%;
+}
+.tw{
+    display: block;
+    width: 40px;
+    height: 40px;
+    background-color: black;
+    background-image: url("https://static.foxnews.com/static/orion/styles/img/fox-news/s/social/x.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    text-indent: -99999px;
+    border-radius: 50%;
+background-size: 50%;
+}
+.flip{
+    display: block;
+    width: 40px;
+    height: 40px;
+    background-color: red;
+    background-image: url("https://static.foxnews.com/static/orion/styles/img/fox-news/s/social/flipboard.svg");
+    background-repeat: no-repeat;
+    text-indent: -99999px;
+    border-radius: 50%;
+    background-size: 50%;
+    background-position: center;
+}
+.bubble{
+    display: block;
+    width: 40px;
+    height: 40px;
+    background-color: #003366;
+    background-image: url("https://static.foxnews.com/static/orion/styles/img/fox-news/s/social/bubble.svg");
+    background-repeat: no-repeat;
+    text-indent: -99999px;
+    border-radius: 50%;
+    background-size: 50%;
+    background-position: center;
+}
+
+.print{
+    display: block;
+    width: 40px;
+    height: 40px;
+    background-color: #003366;
+    background-image: url("https://static.foxnews.com/static/orion/styles/img/fox-news/s/social/print.svg");
+    background-repeat: no-repeat;
+    border-radius: 50%;
+    background-position: center;
+    background-size: 60%;
+}
+
+.email{
+    display: block;
+    width: 40px;
+    height: 40px;
+    background-color: #003366;
+    background-image: url("https://static.foxnews.com/static/orion/styles/img/fox-news/s/social/email.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 50%;
+    border-radius: 50%;
+}
+.article-social{
+margin-top: 30px;
+margin-left: 350px;
+
+}
+.item{
+    margin-right: 10px;
+}
+
+.article-container{
+    border-bottom: 1px solid rgba(98, 114, 164, 0.35);
+    padding-bottom: 30px;
+    margin-left: 70px;
+    margin-bottom: 40px;
+    width: 700px;
+    border-top: 1px solid rgba(98, 114, 164, 0.35);
+}
+.photo{
+    padding-left: 80px;
+
+}
+.main-content{
+    display: flex;
+}
+
+.fn-politics{
+
+    border: 1px solid rgba(98, 114, 164, 0.35);
+    width: 300px;
+    height: 265px;
+    margin-left: 15px;
+    margin-top: -145px;
+    padding: 15px;
+}
+
+.info{
+    font-family: FontNameStatic, sans-serif;
+    font-size: 14px;
+    line-height: 21px;
+    margin-bottom: 14px;
+}
+.arraive{
+    font-family: FontNameBold, sans-serif;
+    font-size: 12px;
+
+    line-height: 14px;
+    color: black;
+}
+.arrive-span{
+    margin-left: 20px;
+    border-radius: 2px;
+    color: white;
+    background-color: #003366;
+    padding: 3px
+}
+.subscribe{
+    text-align: center;
+    margin-top: 20px;
+}
+.subscribe-btn{
+    height: 46px;
+    width: 100%;
+    border:none;
+    background-color: #1b4e81;
+    color: white;
+    border-radius: 5px;
+    font-family: FontNameBold, sans-serif;
+}
+
+.description{
+    margin-left: 80px;
+    width: 700px;
+}
+.description-header{
+    font-family: FontNameBold, sans-serif;
+    color: #003366;
+}
+.description-info{
+    padding-bottom: 15px;
+    margin-bottom: 30px;
+    border-bottom: 1px solid rgba(98, 114, 164, 0.35);
+}
+
+.description-p{
+    font-family: FontNameLight,sans-serif;
+    font-size: 13px;
+    color: #666;
+margin-top: 10px;
+}
+
+.description-item{
+    margin-bottom: 30px;
+font-family: FontNameStatic;
+    font-weight: 500;
+}
+
+.description-main{
+    font-size: 18px;
+    line-height: 28px;
+
+}
+.bold{
+    font-family: FontNameLight,sans-serif;
+    color: #003366;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-decoration: underline;
+}
+b{
+    color: #003366;
+    text-decoration: underline;
+}
+
+.order-container{
+    text-align: center;
+
+}
+.popup{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    border: 1px solid black;
+    padding: 20px;
+    z-index: 9999;
+}
+.form-inner{
+    max-width: 519px;
+    background-image: url("./img/form-bg.jpg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    margin-top: 40px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 40px;
+}
+
+.old-price{
+    text-decoration: line-through;
+    color: #d40000;
+    font-size: 28px;
+    line-height: 1;
+    font-weight: 600;
+    font-family: FontNameBold, sans-serif;
+}
+.new-price{
+    color: #01792b;
+    font-size: 42px;
+    line-height: 1;
+    font-weight: 700;
+    font-family: FontNameBold, sans-serif;
+}
+.form-text{
+    padding:30px;
+}
+.form-p{
+    font-family: FontNameLight, sans-serif;
+}
+.label{
+    text-transform: uppercase;
+    font-family: FontNameBold, sans-serif;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.order-form-wrapper{
+    display: flex;
+    flex-direction: column;
+}
+.order-name{
+    width: 450px;
+    height: 50px;
+    border: 1px solid grey;
+    border-radius: 5px;
+    padding-left:10px;
+    font-family: FontNameStatic,sans-serif;
+}
+.error{
+    background-color: #c20017;
+    color: white;
+    width: 150px;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 20px;
+}
+.hidden{
+    visibility: hidden;
+}
+.submit-btn{
+    background-color: #c20017;
+    color:white;
+    text-transform: uppercase;
+    font-family: FontNameBold,sans-serif;
+    border: none;
+    padding: 10px;
+    border-radius: 10px;
+}
+.submit-btn:hover{
+    box-shadow: 5px 5px 5px darkred;
+}
+.permition{
+    font-family: FontNameMain, sans-serif;
+    font-size: 12px;
+    margin-top: 10px
+}
+.footer-container{
+width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding-left: 62px;
+    background-color: #003366;
+    color: white;
+    padding-top: 30px;
+    border-bottom: 1px solid white;
+}
+footer{
+    background-color: #003366;
+}
+.nav-item{
+margin-right: 30px;
+    width: 200px;
+    font-size: 14px;
+    line-height: 18px;
+    margin-bottom: 6px;
+    font-family: FontNameStatic, sans-serif;
+}
+h6{
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    font-family: FontNameBold, sans-serif;
+}
+nav{
+    margin-bottom: 20px;
+    margin-right: 60px;
+}
+
+.footer-items{
+    display: flex;
+    justify-content: center;
+}
+.footer-social{
+    height: 50px;
+}
+.popup{
+
+    font-family: FontNameBold, sans-serif;
+position: fixed;
+    left:900px;
+    border: 1px solid darkred;
+    border-radius: 5px;
+    color:white;
+    background-color: #003366;
+}
+.close{
+    padding: 3px;
+
+}
+.close:hover{
+    background-color: #c20017;
+    color: white;
+}
+
+.footer-item{
+    background-size: 40%;
+    background-repeat: no-repeat;
+    width: 30px;
+    height: 30px;
+    background-color: black;
+    border-radius: 50%;
+    background-position: center;
+    text-indent: -99999px;
+    margin-right: 10px;
+}
+.fb{
+    background-image: url("https://static.foxnews.com/static/orion/styles/img/fox-news/s/social/facebook.svg");
+background-size: 20%;
+}
+.x{
+    background-image: url("https://static.foxnews.com/static/orion/styles/img/fox-news/s/social/x.svg");
+}
+.insta{
+    background-image: url("https://static.foxnews.com/static/orion/styles/img/fox-news/s/social/instagram.svg");
+}
+.youtube{
+    background-image: url("https://static.foxnews.com/static/orion/styles/img/fox-news/s/social/youtube.svg");
+}
+.flipboard{
+    background-image: url("https://static.foxnews.com/static/orion/styles/img/fox-news/s/social/flipboard.svg");
+}
+.link{
+    background-image: url("https://static.foxnews.com/static/orion/styles/img/fox-news/s/social/linked-in.svg");
+}
+.slack{
+    background-image: url("https://static.foxnews.com/static/orion/styles/img/fox-news/s/social/slack.svg");
+}
+.rss{
+    background-image: url("https://static.foxnews.com/static/orion/styles/img/fox-news/s/social/rss.svg");
+}
+.news{
+    background-image: url("https://static.foxnews.com/static/orion/styles/img/fox-news/s/social/email.svg");
+}
+.spotify{
+    background-image: url("https://static.foxnews.com/static/orion/styles/img/fox-news/s/social/spotify.svg");
+}
+.iheart{
+    background-image: url("https://static.foxnews.com/static/orion/styles/img/fox-news/s/social/iheartradio.svg");
+}
+
+.branding{
+    margin-left: 62px;
+    margin-right: 10px;
+}
+.legal-ul{
+    display: flex;
+
+}
+.legal-items{
+    color: white;
+    margin-right: 10px;
+    border-right: 1px solid white;
+    padding-right:5px;
+}
+
+.legal-a{
+    color: white;
+}
+.copyright{
+    color: rgba(255, 255, 255, 0.46);
+    font-family: FontNameStatic, sans-serif;
+    font-size: 12px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+
+input {
+    outline: medium none;
+    border: 1px solid #d3d6db;
+    width: 100%;
+    max-width: 100%;
+    padding-left: 10px;
+    padding-top: 10px;
+    height: 30px;
+    font-family: Arial,sans-serif;
+    transition: .5s;
+}
+
+.comment-username,
+.like,
+.like-count,
+.reply {
+    color: #365899;
+    margin-right: 10px
+}
+.comments{
+    width: 90%;
+    margin-left: 62px;
+}
+.comment-avatar,
+.comment-input-area,
+.comment-text {
+    display: inline-block;
+    vertical-align: top
+}
+
+.comments-item,
+.textarea {
+    box-sizing: border-box;
+    padding-bottom: 10px;
+    transition: opacity 0.4s;
+}
+
+.comment-username,
+.send-btn {
+    font-weight: 700;
+    cursor: pointer
+}
+
+.button,
+.comment-avatar,
+.comment-text {
+    vertical-align: top
+}
+
+.comment-date,
+.like-count,
+.pulse {
+    position: relative
+}
+
+.comments-item {
+    max-width: 90%;
+    margin: 0 auto 15px;
+    border-bottom: 1px solid #e1e2e3
+}
+
+.comment-avatar {
+    margin-right: 10px;
+    font-size: 0
+}
+
+.comment-avatar img {
+
+}
+
+.comment-text {
+    max-width: 79%;
+    font-size: 14px
+}
+
+.comment-username:hover,
+.like:hover,
+.reply:hover {
+    text-decoration: underline
+}
+
+.comment-action {
+    padding-left: 43px
+}
+
+.like,
+.like-count,
+.reply {
+    font-size: 13px;
+    cursor: pointer;
+    position: relative;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none
+}
+
+.like:after,
+.reply:after {
+    content: "  ·  ";
+    position: absolute;
+    font-weight: 700;
+    right: -10px;
+    top: 0;
+    color: #90949c
+}
+
+.like-count {
+    padding-left: 20px
+}
+
+.like-count:before {
+    content: "";
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    left: 0;
+    top: 1px;
+    background-image: url("img/autoCommentsLike.png")
+}
+
+.like-count-liked {
+    animation: .5s like-change
+}
+
+.like-count-unliked {
+    animation: .5s like-unchange
+}
+
+@keyframes like-change {
+    50% {
+        top: -10px;
+        opacity: 0
+    }
+
+    51% {
+        bottom: -10px
+    }
+
+    100% {
+        bottom: 0;
+        opacity: 1
+    }
+}
+
+@keyframes like-unchange {
+    50% {
+        bottom: -10px;
+        opacity: 0
+    }
+
+    100% {
+        top: 0;
+        opacity: 1
+    }
+}
+
+.comment-date {
+    font-size: 13px;
+    color: #90949c
+}
+
+.comment-input {
+    width: 90%;
+    margin: 0 auto 20px
+}
+
+.comment-input-area {
+    width: 80%;
+    font-size: 0;
+    perspective: 800px
+}
+
+.comment-input input[type=text] {
+    width: 150px;
+    box-sizing: border-box;
+    padding-left: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+    transition: .4s;
+    word-wrap: wrap
+}
+
+.textarea {
+    border: 1px solid #d3d6db;
+    width: 100%;
+    max-width: 100%;
+    padding-left: 10px;
+    padding-top: 10px;
+    height: 30px;
+    font-family: Arial, sans-serif;
+    transition: .5s
+}
+
+.textarea-focus {
+    height: 80px
+}
+
+.input-action {
+    display: none;
+    transition: .4s;
+    background-color: #f6f7f9;
+    border: 1px solid #ccc;
+    padding: 10px;
+    transform-origin: top
+}
+
+.input-action-focus {
+    display: block;
+    animation: .6s action-appear
+}
+
+.comment-appear {
+    animation: .4s comment-appear
+}
+
+@keyframes comment-appear {
+    from {
+        transform: scale(0)
+    }
+
+    to {
+        transform: scale(1)
+    }
+}
+
+@keyframes action-appear {
+    0% {
+        opacity: 0;
+        transform: rotateX(-90deg)
+    }
+
+    60% {
+        transform: rotateX(30deg)
+    }
+
+    100% {
+        opacity: 1;
+        transform: rotateX(0)
+    }
+}
+.send-btn {
+    float: right;
+    padding: 5px 10px;
+    margin-top: 10px;
+    background-color: #4267b2;
+    border: none;
+    border-radius: 2px;
+    color: #fff
+}
+
+.send-btn:hover {
+    background-color: #365899
+}
+
+@media all and (max-width:720px) {
+    main {
+        width: 100%
+    }
+
+    .sidebar {
+        display: none
+    }
+
+    .mobile-header {
+        display: block
+    }
+}
+
+@media all and (max-width:460px) {
+    .wheel {
+        width: 280px
+    }
+}
+
+.button {
+    display: inline-block;
+    text-decoration: none;
+    font-size: 18px;
+    padding: 15px;
+    background-color: #f44336;
+    color: #fff;
+    text-align: center;
+    letter-spacing: .5px;
+    border: none;
+    margin: 10px 0;
+    text-transform: uppercase;
+    border-radius: 2px;
+    -webkit-box-shadow: 0 0 2px rgba(0, 0, 0, .12), 0 2px 2px rgba(0, 0, 0, .2);
+    box-shadow: 0 0 2px rgba(0, 0, 0, .12), 0 2px 2px rgba(0, 0, 0, .2);
+    transition: .3s ease-out
+}
+
+.button:hover {
+    background-color: #f55a4e;
+    box-shadow: 0 3px 3px 0 rgba(0, 0, 0, .14), 0 1px 7px 0 rgba(0, 0, 0, .12), 0 3px 1px -1px rgba(0, 0, 0, .2)
+}
+
+.pulse {
+    z-index: 1
+}
+
+.pulse:hover:before {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: #f44336;
+    border-radius: inherit;
+    transition: opacity .3s, transform .3s, -webkit-transform .3s;
+    -webkit-animation: 5s cubic-bezier(.24, 0, .38, 1) infinite pulse-animation;
+    animation: 5s cubic-bezier(.24, 0, .38, 1) infinite pulse-animation;
+    z-index: -1
+}
+@-webkit-keyframes pulse-animation {
+    0% {
+        opacity: 1;
+        -webkit-transform: scale(1);
+        transform: scale(1)
+    }
+
+    100%,
+    15% {
+        opacity: 0;
+        -webkit-transform: scale(1.2);
+        transform: scale(1.2)
+    }
+}
+
+@keyframes pulse-animation {
+    0% {
+        opacity: 1;
+        -webkit-transform: scale(1);
+        transform: scale(1)
+    }
+
+    100%,
+    15% {
+        opacity: 0;
+        -webkit-transform: scale(1.2);
+        transform: scale(1.2)
+    }
+}
+
+.comments-refreshing-wrapper {
+    background-color: #d7f2d8;
+    padding: 1px 0;
+    margin: 10px 0;
+    min-height: 150px;
+    border-radius: 5px;
+    text-align: left !important
+}
+
+.comments-refreshing-wrapper .comments-refreshing-title {
+    font-size: 20px;
+    padding-left: 20px
+}
+
+.comments-refreshing-title {
+    padding: 10px 20px !important
+}
+
+.comments-refreshing-wrapper .comments-item {
+    display: none;
+    border-bottom: none
+}
+
+.comments-refreshing-wrapper .comments-newly-showed {
+    display: block;
+    animation: .5s new-comment-show
+}
+
+.comments-refreshing {
+    display: none;
+    text-align: center
+}
+
+.comments-refreshing img {
+    max-width: 100px
+}
+
+.refresh-appear {
+    display: block;
+    animation: .5s typing-show
+}
+
+@keyframes typing-show {
+    0% {
+        opacity: 0
+    }
+
+    100% {
+        opacity: 1
+    }
+}
+
+@keyframes new-comment-show {
+    0% {
+        transform: scale(.2)
+    }
+
+    80% {
+        transform: scale(1.2)
+    }
+
+    100% {
+        transform: scale(1)
+    }
+}
+
+.form__sand {
+    margin: 30px 0;
+    padding: 20px 0;
+    padding-left: 34px;
+}
+
+.comments-item2 {
+    max-width: 90%;
+    margin: 0 auto 15px;
+    border-bottom: 1px solid #e1e2e3;
+}
+
+.opacity {
+    animation: opacity 1s;
+}
+
+@keyframes opacity {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+.burger{
+    display: none;
+}
+@media screen and (max-width: 768px){
+    .wrapper{
+        width:100%;
+    }
+    .inner{
+        display: none;
+    }
+    .meta{
+        margin-left: 100px;
+        margin-top: -10px;
+    }
+    .search-toggle{
+        display: none;
+    }
+    .burger {
+        display: block;
+        background-image: url("https://static.foxnews.com/static/orion/styles/img/fox-news/s/bg/menu.svg");
+        background-repeat: no-repeat;
+        color: rgba(255, 255, 255, 0);
+        background-size: 100%;
+        margin-left: 20px;
+        margin-top: 10px;
+
+    }
+    .logo{
+        background-image: url("https://static.foxnews.com/static/orion/styles/img/fox-news/s/logos/fox-news-logo-small.svg");
+        width: 200px;
+        background-size: 70%;
+        border: none;
+        margin-left: 10px;
+    }
+    .header-blue{
+        height: 50px;
+    }
+    .page{
+        margin-left: 10px;
+    }
+    .page-header{
+        font-size: 32px;
+        line-height: normal;
+    }
+
+    .page-header2{
+        font-size: 20px;
+    }
+    .article-social{
+        margin-left: 50px;
+        margin-top: 0;
+    }
+    .article-container{
+        border: none;
+        margin-bottom: 0;
+    }
+    .photo{
+        padding-left: 10px;
+
+    }
+    .doctor{
+        width: 600px;
+        margin-left: 10px;
+    }
+    .fn-politics{
+        display: none;
+    }
+    .description{
+        margin-left: 30px;
+        width: 90%;
+    }
+    .popup{
+        position: fixed;
+        left: 550px;
+        width: 300px;
+    }
+    .legal-items{
+        font-size: 12px;
+        height: 20px;
+    }
+    .copyright{
+        margin-top: 0;
+    }
+    .legal-ul{
+        flex-wrap: wrap;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1024px){
+
+}

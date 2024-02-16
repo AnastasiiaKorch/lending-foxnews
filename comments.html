@@ -1,0 +1,1294 @@
+<!-- Стили ставит в <head> -->
+    <style>
+        input {
+        outline: medium none;
+        border: 1px solid #d3d6db;
+        width: 100%;
+        max-width: 100%;
+        padding-left: 10px;
+        padding-top: 10px;
+        height: 30px;
+        font-family: Arial,sans-serif;
+        transition: .5s;
+        }
+        .comment-username,
+        .like,
+        .like-count,
+        .reply {
+          color: #365899;
+          margin-right: 10px
+        }
+    
+        .comment-avatar,
+        .comment-input-area,
+        .comment-text {
+          display: inline-block;
+          vertical-align: top
+        }
+    
+        .comments-item,
+        .textarea {
+          box-sizing: border-box;
+          padding-bottom: 10px;
+          transition: opacity 0.4s;
+        }
+    
+        .comment-username,
+        .send-btn {
+          font-weight: 700;
+          cursor: pointer
+        }
+    
+        .button,
+        .comment-avatar,
+        .comment-text {
+          vertical-align: top
+        }
+    
+        .comment-date,
+        .like-count,
+        .pulse {
+          position: relative
+        }
+    
+        .comments-item {
+          max-width: 90%;
+          margin: 0 auto 15px;
+          border-bottom: 1px solid #e1e2e3
+        }
+    
+        .comment-avatar {
+          margin-right: 10px;
+          font-size: 0
+        }
+    
+        .comment-avatar img {
+          
+        }
+    
+        .comment-text {
+          max-width: 79%;
+          font-size: 14px
+        }
+    
+        .comment-username:hover,
+        .like:hover,
+        .reply:hover {
+          text-decoration: underline
+        }
+    
+        .comment-action {
+          padding-left: 43px
+        }
+    
+        .like,
+        .like-count,
+        .reply {
+          font-size: 13px;
+          cursor: pointer;
+          position: relative;
+          -webkit-user-select: none;
+          -moz-user-select: none;
+          -ms-user-select: none;
+          user-select: none
+        }
+    
+        .like:after,
+        .reply:after {
+          content: "  ·  ";
+          position: absolute;
+          font-weight: 700;
+          right: -10px;
+          top: 0;
+          color: #90949c
+        }
+    
+        .like-count {
+          padding-left: 20px
+        }
+    
+        .like-count:before {
+          content: "";
+          position: absolute;
+          width: 12px;
+          height: 12px;
+          left: 0;
+    top: 1px;
+          background-image: url("img/autoCommentsLike.png")
+        }
+    
+        .like-count-liked {
+          animation: .5s like-change
+        }
+    
+        .like-count-unliked {
+          animation: .5s like-unchange
+        }
+    
+        @keyframes like-change {
+          50% {
+            top: -10px;
+            opacity: 0
+          }
+    
+          51% {
+            bottom: -10px
+          }
+    
+          100% {
+            bottom: 0;
+            opacity: 1
+          }
+        }
+    
+        @keyframes like-unchange {
+          50% {
+            bottom: -10px;
+            opacity: 0
+          }
+    
+          100% {
+            top: 0;
+            opacity: 1
+          }
+        }
+    
+        .comment-date {
+          font-size: 13px;
+          color: #90949c
+        }
+    
+        .comment-input {
+          width: 90%;
+          margin: 0 auto 20px
+        }
+    
+        .comment-input-area {
+          width: 80%;
+          font-size: 0;
+          perspective: 800px
+        }
+    
+        .comment-input input[type=text] {
+          width: 150px;
+          box-sizing: border-box;
+          padding-left: 10px;
+          padding-top: 5px;
+          padding-bottom: 5px;
+          margin-bottom: 10px;
+          transition: .4s;
+          word-wrap: wrap
+        }
+    
+        .textarea {
+          border: 1px solid #d3d6db;
+          width: 100%;
+          max-width: 100%;
+          padding-left: 10px;
+          padding-top: 10px;
+          height: 30px;
+          font-family: Arial, sans-serif;
+          transition: .5s
+        }
+    
+        .textarea-focus {
+          height: 80px
+        }
+    
+        .input-action {
+          display: none;
+          transition: .4s;
+          background-color: #f6f7f9;
+          border: 1px solid #ccc;
+          padding: 10px;
+          transform-origin: top
+        }
+    
+        .input-action-focus {
+          display: block;
+          animation: .6s action-appear
+        }
+    
+        .comment-appear {
+          animation: .4s comment-appear
+        }
+    
+        @keyframes comment-appear {
+          from {
+            transform: scale(0)
+          }
+    
+          to {
+            transform: scale(1)
+          }
+        }
+    
+        @keyframes action-appear {
+          0% {
+            opacity: 0;
+            transform: rotateX(-90deg)
+          }
+    
+          60% {
+            transform: rotateX(30deg)
+          }
+    
+          100% {
+            opacity: 1;
+            transform: rotateX(0)
+          }
+        }
+    
+        .send-btn {
+          float: right;
+          padding: 5px 10px;
+          margin-top: 10px;
+          background-color: #4267b2;
+          border: none;
+          border-radius: 2px;
+          color: #fff
+        }
+    
+        .send-btn:hover {
+          background-color: #365899
+        }
+    
+        @media all and (max-width:720px) {
+          main {
+            width: 100%
+          }
+    
+          .sidebar {
+            display: none
+          }
+    
+          .mobile-header {
+            display: block
+          }
+        }
+    
+        @media all and (max-width:460px) {
+          .wheel {
+            width: 280px
+          }
+        }
+    
+        .button {
+          display: inline-block;
+          text-decoration: none;
+          font-size: 18px;
+          padding: 15px;
+          background-color: #f44336;
+          color: #fff;
+          text-align: center;
+          letter-spacing: .5px;
+          border: none;
+          margin: 10px 0;
+          text-transform: uppercase;
+          border-radius: 2px;
+          -webkit-box-shadow: 0 0 2px rgba(0, 0, 0, .12), 0 2px 2px rgba(0, 0, 0, .2);
+          box-shadow: 0 0 2px rgba(0, 0, 0, .12), 0 2px 2px rgba(0, 0, 0, .2);
+          transition: .3s ease-out
+        }
+    
+        .button:hover {
+          background-color: #f55a4e;
+          box-shadow: 0 3px 3px 0 rgba(0, 0, 0, .14), 0 1px 7px 0 rgba(0, 0, 0, .12), 0 3px 1px -1px rgba(0, 0, 0, .2)
+        }
+    
+        .pulse {
+          z-index: 1
+        }
+    
+        .pulse:hover:before {
+          content: "";
+          display: block;
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          top: 0;
+          left: 0;
+          background-color: #f44336;
+          border-radius: inherit;
+          transition: opacity .3s, transform .3s, -webkit-transform .3s;
+          -webkit-animation: 5s cubic-bezier(.24, 0, .38, 1) infinite pulse-animation;
+          animation: 5s cubic-bezier(.24, 0, .38, 1) infinite pulse-animation;
+          z-index: -1
+        }
+    
+        @-webkit-keyframes pulse-animation {
+          0% {
+            opacity: 1;
+            -webkit-transform: scale(1);
+            transform: scale(1)
+          }
+    
+          100%,
+          15% {
+            opacity: 0;
+            -webkit-transform: scale(1.2);
+            transform: scale(1.2)
+          }
+        }
+    
+        @keyframes pulse-animation {
+          0% {
+            opacity: 1;
+            -webkit-transform: scale(1);
+            transform: scale(1)
+          }
+    
+          100%,
+          15% {
+            opacity: 0;
+            -webkit-transform: scale(1.2);
+            transform: scale(1.2)
+          }
+        }
+    
+        .comments-refreshing-wrapper {
+          background-color: #d7f2d8;
+          padding: 1px 0;
+          margin: 10px 0;
+          min-height: 150px;
+          border-radius: 5px;
+          text-align: left !important
+        }
+    
+        .comments-refreshing-wrapper .comments-refreshing-title {
+          font-size: 20px;
+          padding-left: 20px
+        }
+    
+        .comments-refreshing-title {
+          padding: 10px 20px !important
+        }
+    
+        .comments-refreshing-wrapper .comments-item {
+          display: none;
+          border-bottom: none
+        }
+    
+        .comments-refreshing-wrapper .comments-newly-showed {
+          display: block;
+          animation: .5s new-comment-show
+        }
+    
+        .comments-refreshing {
+          display: none;
+          text-align: center
+        }
+    
+        .comments-refreshing img {
+          max-width: 100px
+        }
+    
+        .refresh-appear {
+          display: block;
+          animation: .5s typing-show
+        }
+    
+        @keyframes typing-show {
+          0% {
+            opacity: 0
+          }
+    
+          100% {
+            opacity: 1
+          }
+        }
+    
+        @keyframes new-comment-show {
+          0% {
+            transform: scale(.2)
+          }
+    
+          80% {
+            transform: scale(1.2)
+          }
+    
+          100% {
+            transform: scale(1)
+          }
+        }
+    
+        .form__sand {
+          margin: 30px 0;
+          padding: 20px 0;
+          padding-left: 34px;
+        }
+    
+        .comments-item2 {
+          max-width: 90%;
+          margin: 0 auto 15px;
+          border-bottom: 1px solid #e1e2e3;
+        }
+    
+        .opacity {
+          animation: opacity 1s;
+        }
+    
+        @keyframes opacity {
+          from {
+            opacity: 0;
+          }
+    
+          to {
+            opacity: 1;
+          }
+        }
+      </style>
+    
+
+
+<!-- Разметка -->
+<div class="comments">
+    <h2 class="comments__title">Коментари</h2>
+    <div class="comments-ite"></div>
+    <div>
+      <p class="comment__admin lt111 input-action">Вече оставихте преглед</p>
+      <form class="form__sand">
+        <div style="display: flex;">
+          <img src="./img/autoCommentsAva.jpg" style="width: 32px;
+          height: 32px;
+          margin-right: 10px;">
+          <div style="width: 100vw;">
+            <input placeholder="Вашето име" class="comment-name-input" required="">
+            <textarea placeholder="Вашият коментар" class="textarea" required=""></textarea> <br>
+          </div>
+          
+        </div>
+       
+        <button class="send-btn">Siųsti</button>
+      </form>
+
+    </div>
+    <!-- Конец статичных коментов -->
+    
+    <div id="asd"></div>
+    <div class="comments-item comment-appear">
+      <div class="comment-avatar">
+        <img src="img/autoCommentsAva.jpg" width="32" height="32">
+      </div>
+      <div class="comment-text"><span class="comment-username" id="username"></span><span
+          id="usercomment"></span></div>
+      <div class="comment-action">
+        <span class="like" style="font-weight: normal;">Като</span>
+        <span class="reply">Повторно публикуване</span>
+        <span class="like-count">0</span>
+        <span class="comment-date mv_rtdate"></span>
+      </div>
+    </div>
+    <div class="comments js-comments" id="comments">
+      
+      <!-- Статичные коменты -->
+      <div class="comments-item">
+        <div class="comment-avatar">
+          <img src="img/comm_01.jpg" width="32" height="32" />
+        </div>
+        <div class="comment-text">
+          <span class="comment-username">Людмила Сичева</span><br>
+          Щях да им затворя целия този канал, те лъжат постоянно, играят по гайдата на ония които им дават
+          пари!! Възхищавам се на смелостта на този човек, но ми се струва, че от тук насетне той вече няма да
+          има кариера.
+          <br>
+        </div>
+        <div class="comment-action">
+          <span class="like">Като</span>
+          <span class="reply">Повторно публикуване</span>
+          <span class="like-count">217</span>
+          <span class="comment-date mv_rtdate"></span>
+        </div>
+      </div>
+
+      <div class="comments-item">
+        <div class="comment-avatar">
+          <img src="img/comm_02.jpg" width="32" height="32" />
+        </div>
+        <div class="comment-text">
+          <span class="comment-username">Игор Барзов</span> <br>
+          Кариерата му ще върви само нагоре! Ако сте за истината, тогава ще спечелите! Той не се страхува да
+          говори за това, което помага, но за него ще има опашки! Вероятно ще слушам и ще си поръчам
+          Cardioactive.
+          <br>
+        </div>
+        <div class="comment-action">
+          <span class="like">Като</span>
+          <span class="reply">Повторно публикуване</span>
+          <span class="like-count">345</span>
+          <span class="comment-date mv_rtdate"></span>
+        </div>
+      </div>
+
+      <div class="comments-item">
+        <div class="comment-avatar">
+          <img src="img/comm_03.jpg" width="32" height="32" />
+        </div>
+        <div class="comment-text">
+          <span class="comment-username">Светлана Данаилова</span> <br>
+          Дълги години страдах от хипертония, стигна се до загуба на съзнание, на работа дори свикнаха. Малка
+          промяна във времето – налягането скача, притеснено – всичко, веднага без сила. Тахикардия ме настигна
+          през нощта. Лекарите постоянно ме плашат с опасността от инсулт, тъй Като съдовете не издържат на
+          такива колебания. Беше много страшно, защото съпругът ми почина от инсулт. Разбрах за Cardioactive
+          случайно, попаднах на статията и реших да го пробвам. От няколко месеца забравих за слабостта и
+          скоковете на натиск. Чувствам се освежена и дори подмладена. Препоръчвам го на всички!
+          <br>
+        </div>
+        <div class="comment-action">
+          <span class="like">Като</span>
+          <span class="reply">Повторно публикуване</span>
+          <span class="like-count">111</span>
+          <span class="comment-date mv_rtdate"></span>
+        </div>
+        <br>
+
+        <div class="comments-item">
+          <div class="comment-avatar">
+            <img src="img/comm_04.jpg" width="32" height="32" />
+          </div>
+          <div class="comment-text">
+            <span class="comment-username">Катерина 82</span> <br>
+            Светлана, моля, споделете как го взехте? Къде поръчахте?
+            <br>
+          </div>
+          <div class="comment-action">
+            <span class="like">Като</span>
+            <span class="reply">Повторно публикуване</span>
+            <span class="like-count">0</span>
+            <span class="comment-date mv_rtdate"></span>
+          </div>
+        </div>
+
+        <div class="comments-item">
+          <div class="comment-avatar">
+            <img src="img/comm_03.jpg" width="32" height="32" />
+          </div>
+          <div class="comment-text">
+            <span class="comment-username">Светлана Данаилова</span> <br>
+            Поръчах го тук. Много е удобно пие се само сутрин и вечер.
+            <br>
+          </div>
+          <div class="comment-action">
+            <span class="like">Като</span>
+            <span class="reply">Повторно публикуване</span>
+            <span class="like-count">2</span>
+            <span class="comment-date mv_rtdate"></span>
+          </div>
+        </div>
+
+        <div class="comments-item">
+          <div class="comment-avatar">
+            <img src="img/comm_05.jpg" width="32" height="32" />
+          </div>
+          <div class="comment-text">
+            <span class="comment-username"> Андрей Иванов</span> <br>
+            Кажете ми повече, имали ли сте алергии? Имам непоносимост към почти всякакви лекарства, но кръвното
+            отдавна ми е проблем...
+            <br>
+          </div>
+          <div class="comment-action">
+            <span class="like">Като</span>
+            <span class="reply">Повторно публикуване</span>
+            <span class="like-count">0</span>
+            <span class="comment-date mv_rtdate"></span>
+          </div>
+        </div>
+
+        <div class="comments-item">
+          <div class="comment-avatar">
+            <img src="img/comm_03.jpg" width="32" height="32" />
+          </div>
+          <div class="comment-text">
+            <span class="comment-username">Светлана Данаилова</span> <br>
+            Андрей, има напълно естествен състав, предимно екстракти. Ако понасяте добре природните лекарства,
+            това е чудесен вариант!
+            <br>
+          </div>
+          <div class="comment-action">
+            <span class="like">Като</span>
+            <span class="reply">Повторно публикуване</span>
+            <span class="like-count">3</span>
+            <span class="comment-date mv_rtdate"></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="comments-item">
+        <div class="comment-avatar">
+          <img src="img/comm_06.jpg" width="32" height="32" />
+        </div>
+        <div class="comment-text">
+          <span class="comment-username">Ирина Гражданска</span>
+          <br>
+          Аз самата съм лекар и мога да кажа, че хипертонията може за кратко време да направи човек неспособен и
+          инвалид. Ето защо е по–добре да се погрижите за нормализирането на налягането предварително.
+          Cardioactive е не само лек, който помага за нормализиране на налягането, но и е отлична превантивна
+          мярка. За съжаление съвременната статистика е такава, че инфарктите и инсултите представляват повече
+          от 70% от смъртните случаи на възраст под 60 години. Тези. хората просто не доживяват до пенсия!
+          Призовавам всички да се погрижат за здравето си и да лекуват симптомите, преди съдът да се спука или
+          да се запуши. Cardioactive е евтина и достатъчно ефективна, за да бъде във всяка аптечка!
+          <br>
+        </div>
+        <div class="comment-action">
+          <span class="like">Като</span>
+          <span class="reply">Повторно публикуване</span>
+          <span class="like-count">15</span>
+          <span class="comment-date mv_rtdate"></span>
+        </div>
+
+        <br>
+        <div class="comments-item">
+          <div class="comment-avatar">
+            <img src="img/comm_07.jpg" width="32" height="32" />
+          </div>
+          <div class="comment-text">
+            <span class="comment-username">Марина Лазова <br></span>
+            Ирина, много сте права! Инсулт удари баща ми внезапно, той си отиде точно на работното място. Това
+            беше шок за всички .. Сега вкъщи винаги има апарат за кръвно налягане и карам съпруга ми и майка ми
+            да измерват редовно кръвното налягане. Направих поръчка за Cardioactive, наистина, превенцията е
+            по–добра!
+            <br>
+          </div>
+          <div class="comment-action">
+            <span class="like">Като</span>
+            <span class="reply">Повторно публикуване</span>
+            <span class="like-count">91</span>
+            <span class="comment-date mv_rtdate"></span>
+          </div>
+        </div>
+
+        <div class="comments-item">
+          <div class="comment-avatar">
+            <img src="img/comm_08.jpg" width="32" height="32" />
+          </div>
+          <div class="comment-text">
+            <span class="comment-username">Васил Тодоров<br></span>
+            След вашите думи поръчах курса, поръчах и получих пакет за промоцията! Утре ще бъде в пощата. Бях
+            изненадан колко бързо доставят до нашия град.
+            <br>
+          </div>
+          <div class="comment-action">
+            <span class="like">Като</span>
+            <span class="reply">Повторно публикуване</span>
+            <span class="like-count">5</span>
+            <span class="comment-date mv_rtdate"></span>
+          </div>
+        </div>
+
+        <div class="comments-item">
+          <div class="comment-avatar">
+            <img src="img/comm_09.jpg" width="32" height="32" />
+          </div>
+          <div class="comment-text">
+            <span class="comment-username">Соня Смилева<br></span>
+            Ирина, но Като лекар, кажете ми, защо Cardioactive е по–добър продукт от обичайните лекарства, които
+            се предписват във всяка клиника?
+            <br>
+          </div>
+          <div class="comment-action">
+            <span class="like">Като</span>
+            <span class="reply">Повторно публикуване</span>
+            <span class="like-count">3</span>
+            <span class="comment-date mv_rtdate"></span>
+          </div>
+        </div>
+
+        <div class="comments-item">
+          <div class="comment-avatar">
+            <img src="img/resize_on_the_fly.jpeg" width="32" height="32" />
+          </div>
+          <div class="comment-text">
+            <span class="comment-username">Д-р Ст. <br></span>
+            Соня, Cardioactive, за разлика от други фармацевтични продукти, не само понижава, но и нормализира
+            кръвното налягане. Това означава, че не е нужно да приемате Cardioactive през цялото време до края
+            на живота си. Достатъчно е да се взема профилактичен курс на всеки 2-3 години. С най-добри
+            пожелания, д-р Ст.
+            <br>
+          </div>
+          <div class="comment-action">
+            <span class="like">Като</span>
+            <span class="reply">Повторно публикуване</span>
+            <span class="like-count">1</span>
+            <span class="comment-date mv_rtdate"></span>
+          </div>
+        </div>
+
+        <div class="comments-item">
+          <div class="comment-avatar">
+            <img src="img/comm_06.jpg" width="32" height="32" />
+          </div>
+          <div class="comment-text">
+            <span class="comment-username">Ирина Гражданска<br></span>
+            Въпросът е в естествените компоненти, които не увреждат черния дроб и хранопровода, Като
+            същевременно ефективно укрепват стените на кръвоносните съдове и стимулират собствените сили на
+            тялото, Като го „превключват“ към самолечение. Това е иновативен подход и не всички фармацевтични
+            компании все още са го усвоили, скъпа технология. Cardioactive успява да постигне тази идеална
+            формула.
+            <br>
+          </div>
+          <div class="comment-action">
+            <span class="like">Като</span>
+            <span class="reply">Повторно публикуване</span>
+            <span class="like-count">61</span>
+            <span class="comment-date mv_rtdate"></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="comments-item">
+        <div class="comment-avatar">
+          <img src="img/comm_10.jpg" width="32" height="32" />
+        </div>
+        <div class="comment-text">
+          <span class="comment-username">Василяна2302 <br></span>
+          Сега има специална оферта, можете да я получите с 50% отстъпка!
+          <br>
+        </div>
+        <div class="comment-action">
+          <span class="like">Като</span>
+          <span class="reply">Повторно публикуване</span>
+          <span class="like-count">66</span>
+          <span class="comment-date mv_rtdate"></span>
+        </div>
+      </div>
+
+      <div class="comments-item">
+        <div class="comment-avatar">
+          <img src="img/comm_11.jpg" width="32" height="32" />
+        </div>
+        <div class="comment-text">
+          <span class="comment-username">Стас 1214</span> <br>
+          Наскоро на една здравна лекция лектора разказа за този продукт. Изглежда, че са открили комбинация от
+          естествени вещества, които взаимно се подсилват и укрепват стените на кръвоносните съдове. Беше
+          интересно
+          <br>
+        </div>
+        <div class="comment-action">
+          <span class="like">Като</span>
+          <span class="reply">Повторно публикуване</span>
+          <span class="like-count">3</span>
+          <span class="comment-date mv_rtdate"></span>
+        </div>
+        <br>
+
+        <div class="comments-item">
+          <div class="comment-avatar">
+            <img src="img/comm_12.jpg" width="32" height="32" />
+          </div>
+          <div class="comment-text">
+            <span class="comment-username">Вера Николова</span> <br>
+            и какво съдържа?
+            <br>
+          </div>
+          <div class="comment-action">
+            <span class="like">Като</span>
+            <span class="reply">Повторно публикуване</span>
+            <span class="like-count">3</span>
+            <span class="comment-date mv_rtdate"></span>
+          </div>
+        </div>
+
+        <div class="comments-item">
+          <div class="comment-avatar">
+            <img src="img/comm_11.jpg" width="32" height="32" />
+          </div>
+          <div class="comment-text">
+            <span class="comment-username">Стас 1214</span> <br>
+            Много добре помня, че Cannabis съдържа огромно количество витамини и укрепва стените на кръвоносните
+            съдове + растителни екстракти и елементи, списъкът беше голям, не помня всичко в него. Казано с
+            няколко думи, една част от компонентите укрепват, а други понижават нивата на холестерина в
+            кръвоносните съдове и изгарят образувалите се плаки, доКато трети стимулират имунитета на организма.
+            <br>
+          </div>
+          <div class="comment-action">
+            <span class="like">Като</span>
+            <span class="reply">Повторно публикуване</span>
+            <span class="like-count" 0</span>
+              <span class="comment-date mv_rtdate"></span>
+          </div>
+        </div>
+
+        <div class="comments-item">
+          <div class="comment-avatar">
+            <img src="img/comm_13.jpg" width="32" height="32" />
+          </div>
+          <div class="comment-text">
+            <span class="comment-username">Яна Ра</span> <br>
+            Това е паметта на лекарите!))))
+            <br>
+          </div>
+          <div class="comment-action">
+            <span class="like">Като</span>
+            <span class="reply">Повторно публикуване</span>
+            <span class="like-count">3</span>
+            <span class="comment-date mv_rtdate"></span>
+          </div>
+        </div>
+
+        <div class="comments-item">
+          <div class="comment-avatar">
+            <img src="img/comm_12.jpg" width="32" height="32" />
+          </div>
+          <div class="comment-text">
+            <span class="comment-username">Вера Николова</span> <br>
+            Благодаря! Намерих описание на сайта, наистина има много от всичко
+            <br>
+          </div>
+          <div class="comment-action">
+            <span class="like">Като</span>
+            <span class="reply">Повторно публикуване</span>
+            <span class="like-count">32</span>
+            <span class="comment-date mv_rtdate"></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="comments-item">
+        <div class="comment-avatar">
+          <img src="img/comm_14.jpg" width="32" height="32" />
+        </div>
+        <div class="comment-text">
+          <span class="comment-username">Светлана Андреева</span> <br>
+          Природните лекарства винаги са най–добрите! Изгорих си хранопровод с хапчета. Едно лекува, друго
+          осакатява. Добре е, че сега официалната медицина преминава към билки.
+          <br>
+        </div>
+        <div class="comment-action">
+          <span class="like">Като</span>
+          <span class="reply">Повторно публикуване</span>
+          <span class="like-count">6</span>
+          <span class="comment-date mv_rtdate"></span>
+        </div>
+        <br>
+
+        <div class="comments-item">
+          <div class="comment-avatar">
+            <img src="img/resize_on_the_fly.jpeg" width="32" height="32" />
+          </div>
+          <div class="comment-text">
+            <span class="comment-username">Д-р Ст. <br></span>
+            Светлана, съжалявам, че това се случи с вас. Бих искал да обърна внимание на факта, че можете
+            спокойно да приемате Cardioactive, той няма странични ефекти, съставът му е избран в пропорции,
+            които са абсолютно безопасни за организма. Бъдете здрава. С най-добри пожелания, д-р Ст.
+            <br>
+          </div>
+          <div class="comment-action">
+            <span class="like">Като</span>
+            <span class="reply">Повторно публикуване</span>
+            <span class="like-count">364</span>
+            <span class="comment-date mv_rtdate"></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="comments-item">
+        <div class="comment-avatar">
+          <img src="img/comm_15.jpg" width="32" height="32" />
+        </div>
+        <div class="comment-text">
+          <span class="comment-username"> Маша Рангелова<br></span>
+          Някой всъщност пробвал ли е? Има ли реални отзиви? Много често ми се вие свят и все още няма време да
+          ида на лекар
+          <br>
+        </div>
+        <div class="comment-action">
+          <span class="like">Като</span>
+          <span class="reply">Повторно публикуване</span>
+          <span class="like-count">3</span>
+          <span class="comment-date mv_rtdate"></span>
+        </div>
+        <br>
+
+        <div class="comments-item">
+          <div class="comment-avatar">
+            <img src="img/comm_16.jpg" width="32" height="32" />
+          </div>
+          <div class="comment-text">
+            <span class="comment-username"> Катя Р.<br></span>
+            Взимам Cardioactive всяка сутрин! Открих го за себе си преди месец. Всъщност стана много по–добре,
+            преди се страхувах да загубя съзнание в метрото, Като ми падне кръвното ((
+            <br>
+          </div>
+          <div class="comment-action">
+            <span class="like">Като</span>
+            <span class="reply">Повторно публикуване</span>
+            <span class="like-count">3</span>
+            <span class="comment-date mv_rtdate"></span>
+          </div>
+        </div>
+
+        <div class="comments-item">
+          <div class="comment-avatar">
+            <img src="img/comm_17.jpg" width="32" height="32" />
+          </div>
+          <div class="comment-text">
+            <span class="comment-username"> Ина Димитриева<br></span>
+            Поръчах си го, взех го в пощата вчера. Вечерта пих – някак ми стана по–леко, шумът в главата ми
+            премина. Продължавам да го пия
+            <br>
+          </div>
+          <div class="comment-action">
+            <span class="like">Като</span>
+            <span class="reply">Повторно публикуване</span>
+            <span class="like-count">9</span>
+            <span class="comment-date mv_rtdate"></span>
+          </div>
+        </div>
+
+        <div class="comments-item">
+          <div class="comment-avatar">
+            <img src="img/comm_18.jpg" width="32" height="32" />
+          </div>
+          <div class="comment-text">
+            <span class="comment-username"> Слънчев лъч<br></span>
+            Това е вторият път, когато поръчвам Cardioactive за себе си и родителите си. Много добър продукт!
+            Мъчеха ме мигрени и на мен често ми се случваше да ми притъмнее пред очите, чак до загуба на
+            съзнание. С Cardioactive всичко мина, препоръчвам!
+            <br>
+          </div>
+          <div class="comment-action">
+            <span class="like">Като</span>
+            <span class="reply">Повторно публикуване</span>
+            <span class="like-count">7</span>
+            <span class="comment-date mv_rtdate"></span>
+          </div>
+        </div>
+
+        <div class="comments-item">
+          <div class="comment-avatar">
+            <img src="img/comm_19.jpg" width="32" height="32" />
+          </div>
+          <div class="comment-text">
+            <span class="comment-username"> Катя Лалева<br></span>
+            Толкова много добри отзиви, благодаря момичета! Със сигурност ще го поръчам на родителите си!
+            <br>
+          </div>
+          <div class="comment-action">
+            <span class="like">Като</span>
+            <span class="reply">Повторно публикуване</span>
+            <span class="like-count">32</span>
+            <span class="comment-date mv_rtdate"></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="comments-item">
+        <div class="comment-avatar">
+          <img src="img/comm_20.jpg" width="32" height="32" />
+        </div>
+        <div class="comment-text">
+          <span class="comment-username">Максим Славчев1</span><br>
+          Cardioactive перфектно балансира налягането и укрепва общото благосъстояние. Стои ми в бюрото, без
+          него Като без ръце
+          <br>
+        </div>
+        <div class="comment-action">
+          <span class="like">Като</span>
+          <span class="reply">Повторно публикуване</span>
+          <span class="like-count">16</span>
+          <span class="comment-date mv_rtdate"></span>
+        </div>
+      </div>
+
+      <div class="comments-item">
+        <div class="comment-avatar">
+          <img src="img/comm_21.jpg" width="32" height="32" />
+        </div>
+        <div class="comment-text">
+          <span class="comment-username">Дария Соколова</span><br>
+          Отдавна чета за Cardioactive, има много добри отзиви. Казват, че е незаменимо нещо за възстановяване
+          от инсулти и инфаркти. Поръчах го на родителите си, превенцията е по–добра!
+          <br>
+        </div>
+        <div class="comment-action">
+          <span class="like">Като</span>
+          <span class="reply">Повторно публикуване</span>
+          <span class="like-count">212</span>
+          <span class="comment-date mv_rtdate"></span>
+        </div>
+      </div>
+
+      <div class="comments-item">
+        <div class="comment-avatar">
+          <img src="img/comm_22.jpg" width="32" height="32" />
+        </div>
+        <div class="comment-text">
+          <span class="comment-username">Димитър Р.</span><br>
+          Кажете ми къде да поръчам, за да не попадна на някое менте?
+          <br>
+        </div>
+        <div class="comment-action">
+          <span class="like">Като</span>
+          <span class="reply">Повторно публикуване</span>
+          <span class="like-count">9</span>
+          <span class="comment-date mv_rtdate"></span>
+        </div>
+        <br>
+        <div class="comments-item">
+          <div class="comment-avatar">
+            <img src="img/comm_23.jpg" width="32" height="32" />
+          </div>
+          <div class="comment-text">
+            <span class="comment-username">Хубавата Елена</span><br>
+            Има всякакви фалшификати !!! Трябва да вземете само тук! Виждате ли холограма във формуляра за
+            кандидатстване? Това е 100% гаранция за истински Cardioactive.
+            <br>
+          </div>
+          <div class="comment-action">
+            <span class="like">Като</span>
+            <span class="reply">Повторно публикуване</span>
+            <span class="like-count">9</span>
+            <span class="comment-date mv_rtdate"></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="comments-item">
+        <div class="comment-avatar">
+          <img src="img/comm_25.jpg" width="32" height="32" />
+        </div>
+        <div class="comment-text">
+          <span class="comment-username">Lаra777</span><br>
+          Поръчах го за майка ми, обади се куриерът, той ще пристигне утре. Ще пиша по–късно като впечатление
+          <br>
+        </div>
+        <div class="comment-action">
+          <span class="like">Като</span>
+          <span class="reply">Повторно публикуване</span>
+          <span class="like-count">3</span>
+          <span class="comment-date mv_rtdate"></span>
+        </div>
+      </div>
+
+      <div class="comments-item">
+        <div class="comment-avatar">
+          <img src="img/comm_27.jpg" width="32" height="32" />
+        </div>
+        <div class="comment-text">
+          <span class="comment-username">Наталия Райлова</span><br>
+          Родителите ми почиваха в санаториума, даваха им Cardioactive профилактично. Мама наистина се радва, че
+          вече се продава свободно. Дано по–леко ти става да говориш с него!
+          <br>
+        </div>
+        <div class="comment-action">
+          <span class="like">Като</span>
+          <span class="reply">Повторно публикуване</span>
+          <span class="like-count">15</span>
+          <span class="comment-date mv_rtdate"></span>
+        </div>
+      </div>
+
+      <div class="comments-item">
+        <div class="comment-avatar">
+          <img src="img/comm_28.jpg" width="32" height="32" />
+        </div>
+        <div class="comment-text">
+          <span class="comment-username">Сергей 86</span><br>
+          Забавен доктор, направо доктор Хаус! Трябва да запомня името, през лятото ще го занеса на село, там
+          старите хора винаги имат проблеми
+          <br>
+        </div>
+        <div class="comment-action">
+          <span class="like">Като</span>
+          <span class="reply">Повторно публикуване</span>
+          <span class="like-count">69</span>
+          <span class="comment-date mv_rtdate"></span>
+        </div>
+      </div>
+
+      
+
+      
+    </div>
+  </div>
+
+<!-- Скрипт стави перед </body> -->
+<script>
+  //КОММЕНТЫ №1 - А-ЛЯ ФЕЙСБУК
+  // Объявляем переменные
+  var send = document.querySelector(".send-btn"),
+    textarea = document.querySelector(".textarea"),
+    sendContainer = document.querySelector(".input-action"),
+    commentNameInput = document.querySelector(".comment-name-input");
+  const key = `commentOn${window.location.pathname}`;
+  let inputBlock = document.querySelector(".form__sand");
+  let adminText = document.querySelector(".comment__admin");
+  let comment = document.querySelector(".comment-appear");
+
+  adminText.style.display = "none";
+  comment.style.display = "none";
+
+  // Работа кнопок 'лайк'
+  if (sendContainer) {
+    function likeCount() {
+      var like = document.querySelectorAll(".like");
+      var likeCountOutput = document.querySelectorAll(".like-count");
+      [].forEach.call(like, function (item, i) {
+        item.onclick = function () {
+          if (item.classList.contains("liked")) {
+            item.classList.remove("liked");
+            item.style.fontWeight = "normal";
+            --likeCountOutput[i].innerHTML;
+            likeCountOutput[i].classList.remove("like-count-liked");
+            likeCountOutput[i].classList.add("like-count-unliked");
+          } else {
+            item.classList.add("liked");
+            item.style.fontWeight = "bold";
+            ++likeCountOutput[i].innerHTML;
+            likeCountOutput[i].classList.add("like-count-liked");
+            likeCountOutput[i].classList.remove("like-count-unliked");
+          }
+        };
+      });
+    }
+    likeCount();
+
+    // Если JS не загрузится, то кнопка отправки комментария будет доступна по-умолчанию
+    sendContainer.classList.remove("input-action-focus");
+    // И ширина инпута тоже будет больше
+    textarea.classList.remove("textarea-focus");
+
+    // При фокусировке на поле ввода появляется кнопка отправления комментария, а также увеличивается высота поля ввода
+    textarea.addEventListener("focus", function (event) {
+      sendContainer.classList.add("input-action-focus");
+      textarea.classList.add("textarea-focus");
+    });
+
+    // При потере фокуса поле ввода схлопнется, если оно пустое
+    textarea.addEventListener("blur", function () {
+      if (!textarea.value) {
+        textarea.classList.remove("textarea-focus");
+      } else {
+        return false;
+      }
+    });
+
+    // Добавление коммента и проверка заполненности полей
+    send.addEventListener("click", function (event) {
+      if (!textarea.value) {
+        alert("WRITE YOUR COMMENT!");
+        send.disabled = true;
+      } else {
+        var allComments = document.querySelectorAll(".comments-item");
+        var newComment = document.createElement("div");
+        newComment.classList.add("comments-item");
+        newComment.classList.add("comment-appear");
+        newComment.innerHTML = allComments[0].innerHTML;
+        newComment.querySelector(".comment-username").innerHTML =
+          textarea.value;
+        newComment
+          .querySelector(".like-count")
+          .classList.remove("like-count-liked");
+        newComment.querySelector(".like").classList.remove("liked");
+        newComment.querySelector(".like").style.fontWeight = "normal";
+        newComment.querySelector(".like-count").innerHTML = 0;
+        newComment.querySelector(".comment-date").innerHTML = "";
+        // вставляем данные в новый коммент, если есть инпут имени
+        if (commentNameInput) {
+          newComment.querySelector(".comment-text").innerHTML =
+            '<span class="comment-username">' +
+            commentNameInput.value +
+            "</span>" +
+            textarea.value;
+          let q1 = commentNameInput.value;
+          let q2 = textarea.value;
+          localStorage.setItem("user", q1);
+          localStorage.setItem("text", q2);
+          textarea.value = "";
+          commentNameInput.value = "";
+          document
+            .querySelector(".comments")
+            .insertBefore(newComment, document.querySelector("#asd"));
+          likeCount();
+        } else {
+          alert("Your comment is sent for moderation!");
+          textarea.value = "";
+        }
+      }
+    });
+  }
+
+  if (!localStorage.getItem(key)) {
+    send.addEventListener("click", (e) => {
+      e.preventDefault();
+      window.localStorage.setItem(key, "true");
+
+      inputBlock.style.display = "none";
+      adminText.style.display = "block";
+    });
+  } else {
+    inputBlock.style.display = "none";
+    adminText.style.display = "block";
+    comment.style.display = "block";
+
+    let commentUserName2 = localStorage.getItem("user");
+    document.getElementById("username").innerHTML = commentUserName2;
+
+    let commentUserText2 = localStorage.getItem("text");
+    document.getElementById("usercomment").innerHTML = commentUserText2;
+  }
+
+  window.onload = function () {
+    // Главная дата - нужно добавить класс элементу .mv_mdate
+    var mv_mdate = document.getElementsByClassName("mv_mdate");
+    var mv_now = Date.now(),
+      mv_one_month = 1000 * 60 * 60 * 24 * 10;
+    if (mv_mdate) {
+      for (i = 0; i < mv_mdate.length; i++) {
+        mv_mdate[i].innerHTML = new Date(
+          mv_now - mv_one_month
+        ).toLocaleDateString();
+      }
+    }
+
+    // Дата сегодня- нужно добавить класс элементу .mv_tdate
+    var mv_tdate = document.getElementsByClassName("mv_tdate");
+    if (mv_tdate) {
+      for (i = 0; i < mv_tdate.length; i++) {
+        mv_tdate[i].innerHTML = new Date(mv_now).toLocaleDateString();
+      }
+    }
+
+    // Даты для комментов - нужно элементам где должна быть дата добавить класс .mv_rdate
+    var mv_rdate = document.getElementsByClassName("mv_rdate");
+    if (mv_rdate) {
+      for (i = 0; i < mv_rdate.length; i++) {
+        let now = Date.now();
+        let one_month = 1000 * 60 * 60 * 24 * (i + 2) * 0.3;
+        let new_rdate = new Date(now - one_month).toLocaleDateString();
+        let y = mv_rdate.length - i - 1;
+        mv_rdate[y].innerHTML = new_rdate;
+      }
+    }
+
+    // Даты для комментов - нужно элементам где должна быть дата добавить класс .mv_rtdate
+    var mv_rtdate = document.getElementsByClassName("mv_rtdate");
+    if (mv_rtdate) {
+      for (i = 0; i < mv_rtdate.length; i++) {
+        let now = Date.now();
+        let one_month = 1000 * 60 * 60 * 24 * (i + 2) * 0.3;
+        let new_rtdate = new Date(now - one_month).toLocaleDateString();
+        let new_rtdateH =
+          new Date(now - one_month).getHours() >= 10
+            ? new Date(now - one_month).getHours()
+            : "0" + new Date(now - one_month).getHours();
+        let new_rtdateM =
+          new Date(now - one_month).getMinutes() >= 10
+            ? new Date(now - one_month).getMinutes()
+            : "0" + new Date(now - one_month).getMinutes();
+        let new_rtdateT = new_rtdateH + ":" + new_rtdateM;
+        let y = mv_rtdate.length - i - 1;
+        mv_rtdate[y].innerHTML = new_rtdate + " " + new_rtdateT;
+      }
+    }
+
+    // Текущий год - нужно добавить класс элементу .mv_tyear
+    var mv_tyear = document.getElementsByClassName("mv_tyear");
+    if (mv_tyear) {
+      for (i = 0; i < mv_tyear.length; i++) {
+        mv_tyear[i].innerHTML = new Date().getFullYear();
+      }
+    }
+  };
+</script>
+<script src="js/comment.js"></script>
